@@ -1,8 +1,9 @@
 import sys
 import copy
-
+import hello
 
 if __name__ == "__main__":
+    # hello.say_hello()
     print("ok")
 
     print("Pythonfdsfsdfsd",sys.getrefcount("Pythonfdsfsdfsd"))
@@ -43,7 +44,11 @@ if __name__ == "__main__":
         [70,80,90]
     ]
     print(la_liste)
+    
     la_liste_2 = la_liste.copy() # => shallow
+    la_liste_2 = la_liste[:] # => shallow
+    la_liste_2 = copy.copy(la_liste) # => shallow
+    
     la_liste_2 = copy.deepcopy(la_liste)
     la_liste[1][1] = 1000
     print("la_liste",la_liste)
