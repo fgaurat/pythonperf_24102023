@@ -35,6 +35,10 @@ class Rectangle:
     def __del__(self):
         print("Rectangle def __del__(self)")
 
+    def __str__(self) -> str:
+        return f"{__class__.__name__} {self.__longueur=},{self.__largeur=}"
+    
+    
     # longueur = property(get_longueur,set_longueur,doc="propriété longueur")
     # largeur = property(get_largeur,set_largeur,doc="propriété largeur")
     # surface = property(get_surface,doc="propriété surface")
