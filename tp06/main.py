@@ -7,7 +7,7 @@ class Test:
         print("__new__")
         return super().__new__(cls)
 
-
+    # constructeur
     def __init__(self) -> None:
         print("__init__")
 

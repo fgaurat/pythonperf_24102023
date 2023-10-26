@@ -1,6 +1,7 @@
-from abc import ABCMeta,abstractmethod
+from abc import ABC,ABCMeta,abstractmethod
 
 
+# class ICalcGeo(ABC):
 class ICalcGeo(metaclass=ABCMeta):
 
     @property
