@@ -15,12 +15,9 @@ PORT = 8000
 web_dir = os.path.join(os.path.dirname(__file__), 'logs')
 os.chdir(web_dir)
 
-class ThreadedHTTPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
-    pass
-
 # Utilisez le nouveau gestionnaire pour servir les fichiers avec la latence
 Handler = DelayedHTTPRequestHandler
-httpd = ThreadedHTTPServer(("", PORT), Handler)
+httpd = socketserver.TCPServer(("", PORT), Handler)
 
 print(f"Serveur démarré à http://localhost:{PORT}")
 httpd.serve_forever()
