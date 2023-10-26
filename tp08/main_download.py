@@ -19,12 +19,8 @@ def main():
     for a in soup.find_all('a'):
         url_file = f"{url}/{a['href']}"
         print(url_file)
-        th = threading.Thread(target=download_and_write,args=[url_file])
-        th.start()
-        threads.append(th)
+        download_and_write(url_file)
 
-    for th in threads:
-        th.join()
     end = time.perf_counter()
     print(end-start,"s")
 
