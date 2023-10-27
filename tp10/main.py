@@ -1,4 +1,5 @@
-def main():
+import cProfile
+
 def is_prime(num):
     """
     is_prime
@@ -22,6 +23,12 @@ def nth_prime(n):
             if count == n:
                 return num
         num += 1    
+
+def main():
+    # v = nth_prime(1000)
+    # print(v)
+    # cProfile.run("nth_prime(1000)")
+    cProfile.run("nth_prime(1000)","nth_prime.pstat")
 
 if __name__ == '__main__':
     main()
