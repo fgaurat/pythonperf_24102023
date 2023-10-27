@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template
 from TodoDAO2 import TodoDAO2
 
 app = Flask(__name__)
@@ -10,8 +10,11 @@ def hello_world():
     return "<p>Bonjour, World!</p>"
 
 
-@app.route("/")
-def index():
+
+@app.route("/old")
+def index_old():
+
+
     dao = TodoDAO2("todos_db.db")
     todos = dao.find_all()
 
@@ -27,3 +30,12 @@ def index():
         html+=row
     html = f"<table>{html}</table>"
     return html
+
+
+@app.route("/")
+def index():
+    #controller
+    dao = TodoDAO2("todos_db.db")
+    todos = list(dao.find_all())
+
+    return render_template('todos.html',list_of_todos=todos)
