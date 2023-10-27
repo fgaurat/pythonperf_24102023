@@ -35,6 +35,10 @@ class TodoDAO2:
             self.__conn.close()
             self.__conn = None
 
+    def close(self):
+        if self.__conn:
+            self.__conn.close()
+
 
     def __del__(self):
         print(f"def __del__(self)")
