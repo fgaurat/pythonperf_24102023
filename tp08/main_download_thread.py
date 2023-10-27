@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from pprint import pprint
 import time
 import threading
+
 def download_and_write(url):
     response = requests.get(url)
     log_file_name = url.split("/")[-1]
